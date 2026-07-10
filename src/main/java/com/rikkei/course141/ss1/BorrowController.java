@@ -1,16 +1,15 @@
 package com.rikkei.course141.ss1;
 
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/borrows")
+@RequiredArgsConstructor
 public class BorrowController {
-    @Autowired
-    private BorrowService borrowService;
+    private final BorrowService borrowService;
 
     @PostMapping
     public ResponseEntity<BorrowRecord> borrowBook(@Valid @RequestBody BorrowCreateDTO dto) {

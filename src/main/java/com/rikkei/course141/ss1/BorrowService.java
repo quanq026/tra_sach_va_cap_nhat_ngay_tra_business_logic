@@ -1,17 +1,15 @@
 package com.rikkei.course141.ss1;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-
+import lombok.RequiredArgsConstructor;
 @Service
+@RequiredArgsConstructor
 public class BorrowService {
-    @Autowired
-    private BorrowRecordRepository borrowRepository;
-    @Autowired
-    private BookRepository bookRepository;
+    private final BorrowRecordRepository borrowRepository;
+    private final BookRepository bookRepository;
 
     @Transactional
     public BorrowRecord borrowBook(BorrowCreateDTO dto) {

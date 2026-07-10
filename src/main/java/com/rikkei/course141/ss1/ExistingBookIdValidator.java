@@ -2,11 +2,10 @@ package com.rikkei.course141.ss1;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import lombok.RequiredArgsConstructor;
+@RequiredArgsConstructor
 public class ExistingBookIdValidator implements ConstraintValidator<ExistingBookId, Long> {
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     @Override
     public boolean isValid(Long bookId, ConstraintValidatorContext context) {

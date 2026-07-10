@@ -1,19 +1,18 @@
 package com.rikkei.course141.ss1;
 
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
-
+import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/books")
+@RequiredArgsConstructor
 public class BookController {
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
     @PostMapping
     public ResponseEntity<Book> createBook(@ModelAttribute BookCreateDTO dto) throws IOException {

@@ -2,19 +2,17 @@ package com.rikkei.course141.ss1;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Map;
-
+import lombok.RequiredArgsConstructor;
 @Service
+@RequiredArgsConstructor
 public class ReaderService {
-    @Autowired
-    private ReaderRepository readerRepository;
-    @Autowired
-    private Cloudinary cloudinary;
+    private final ReaderRepository readerRepository;
+    private final Cloudinary cloudinary;
 
     public Reader createReader(ReaderCreateDTO dto) throws IOException {
         if (readerRepository.findByEmail(dto.getEmail()).isPresent()) {
