@@ -18,4 +18,11 @@ public class BorrowRecord {
     private Long readerId;
     private LocalDate borrowDate;
     private LocalDate returnDate;
+
+    @Enumerated(EnumType.STRING)
+    private BorrowStatus status;
+
+    public enum BorrowStatus {
+        BORROWING, RETURNED
+    }
 }

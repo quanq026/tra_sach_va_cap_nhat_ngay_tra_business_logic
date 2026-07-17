@@ -16,7 +16,7 @@ public class BorrowController {
         return ResponseEntity.status(HttpStatus.CREATED).body(borrowService.borrowBook(dto));
     }
 
-    @PatchMapping("/return/{id}")
+    @PatchMapping("/{id}/return")
     public ResponseEntity<BorrowRecord> returnBook(@PathVariable Long id) {
         return ResponseEntity.ok(borrowService.returnBook(id));
     }

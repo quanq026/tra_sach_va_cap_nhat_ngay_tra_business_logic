@@ -24,6 +24,7 @@ public class BorrowService {
             .bookId(dto.getBookId())
             .readerId(dto.getReaderId())
             .borrowDate(LocalDate.now())
+            .status(BorrowRecord.BorrowStatus.BORROWING)
             .build();
         return borrowRepository.save(record);
     }
@@ -32,7 +33,11 @@ public class BorrowService {
     public BorrowRecord returnBook(Long id) {
         BorrowRecord record = borrowRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy phiếu mượn"));
+        if (record.getStatus() == BorrowRecord.BorrowStatus.RETURNED) {
+            throw new BookAlreadyReturnedException("Sách đã trả rồi");
+        }
         record.setReturnDate(LocalDate.now());
+        record.setStatus(BorrowRecord.BorrowStatus.RETURNED);
         Book book = bookRepository.findById(record.getBookId())
             .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy sách"));
         book.setStock(book.getStock() + 1);

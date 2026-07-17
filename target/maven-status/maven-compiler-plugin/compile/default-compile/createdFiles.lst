@@ -17,8 +17,10 @@ com\rikkei\course141\ss1\BorrowRecord$BorrowRecordBuilder.class
 com\rikkei\course141\ss1\Session08SS1Application.class
 com\rikkei\course141\ss1\BookController.class
 com\rikkei\course141\ss1\Book.class
+com\rikkei\course141\ss1\BorrowRecord$BorrowStatus.class
 com\rikkei\course141\ss1\Reader$ReaderBuilder.class
 com\rikkei\course141\ss1\GlobalExceptionHandler.class
+com\rikkei\course141\ss1\BookAlreadyReturnedException.class
 com\rikkei\course141\ss1\BookUpdateStockDTO.class
 com\rikkei\course141\ss1\ReaderRepository.class
 com\rikkei\course141\ss1\ReaderController.class
